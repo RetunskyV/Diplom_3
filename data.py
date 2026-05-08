@@ -1,0 +1,5 @@
+BASE_URL = "https://qa-stellarburgers.education-services.ru"
+TEST_USER_EMAIL = "test_v@pochta.ru"
+TEST_USER_PASSWORD = "123456"
+PROFILE_URL = f"{BASE_URL}/account/profile"
+ORDER_HISTORY_URL = f"{BASE_URL}/account/order-history"

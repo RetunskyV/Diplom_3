@@ -46,19 +46,12 @@ class BasePage:
         source_elem = self.find_element(source)
         target_elem = self.find_element(target)
         self.driver.execute_script("""
-            var source = arguments[0];
-            var target = arguments[1];
-            var dataTransfer = new DataTransfer();
-            var dragStartEvent = new DragEvent('dragstart', {
-                dataTransfer: dataTransfer,
-                bubbles: true,
-                cancelable: true
-            });
-            var dropEvent = new DragEvent('drop', {
-                dataTransfer: dataTransfer,
-                bubbles: true,
-                cancelable: true
-            });
-            source.dispatchEvent(dragStartEvent);
-            target.dispatchEvent(dropEvent);
+            var s = arguments[0];
+            var t = arguments[1];
+            var dt = new DataTransfer();
+            s.dispatchEvent(new DragEvent('dragstart', {bubbles: true, cancelable: true, dataTransfer: dt}));
+            t.dispatchEvent(new DragEvent('dragenter', {bubbles: true, cancelable: true, dataTransfer: dt}));
+            t.dispatchEvent(new DragEvent('dragover', {bubbles: true, cancelable: true, dataTransfer: dt}));
+            t.dispatchEvent(new DragEvent('drop', {bubbles: true, cancelable: true, dataTransfer: dt}));
+            s.dispatchEvent(new DragEvent('dragend', {bubbles: true, cancelable: true, dataTransfer: dt}));
         """, source_elem, target_elem)

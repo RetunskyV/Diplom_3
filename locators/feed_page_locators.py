@@ -6,4 +6,4 @@ class FeedPageLocators:
     MODAL_CLOSE = ("css selector", "button.Modal_modal__close__TnseK")
     COUNTER_ALL_TIME = ("xpath", "(//p[@class='OrderFeed_number__2MbrQ text text_type_digits-large'])[1]")
     COUNTER_TODAY = ("xpath", "(//p[@class='OrderFeed_number__2MbrQ text text_type_digits-large'])[2]")
-    IN_PROGRESS_LIST = ("xpath", "(//ul[contains(@class, 'OrderFeed_orderList__cBvyi')])[1]")
+    IN_PROGRESS_LIST = ("xpath", "//li[contains(@class, 'text_type_digits-default')]")
